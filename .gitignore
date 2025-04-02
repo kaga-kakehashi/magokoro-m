@@ -1,0 +1,20 @@
+# WordPress一般
+*.log
+*.zip
+.DS_Store
+
+# 開発用ファイル
+node_modules/
+vendor/
+
+# 環境ファイル
+.env
+
+# キャッシュ系
+cache/
+*.tmp
+
+# WordPressアップロード系（必要に応じて）
+/uploads/
+/upgrade/
+/plugins/
