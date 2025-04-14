@@ -11,7 +11,7 @@
     <h2>取り扱い家電ジャンル一覧</h2>
     <div class="kaden-grid">
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/refrigerator.jpg'); ?>" alt="冷蔵庫">
+        <img src="<?php echo get_theme_file_uri('/assets/images/冷蔵庫.jpg'); ?>" alt="冷蔵庫">
         <div class="kaden-text">
           <h3>1ドア冷蔵庫</h3>
           <p>5年以内推奨</p>

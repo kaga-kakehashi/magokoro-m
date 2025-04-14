@@ -1,0 +1,178 @@
+.result-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.result-detail-wrapper {
+  background: #fff;
+  width: 100%;
+}
+
+.result-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.result-info th {
+  text-align: left;
+  width: 30%;
+  padding: 8px;
+  background: #f2f2f2;
+}
+
+.result-info td {
+  padding: 8px;
+  background: #fff;
+}
+
+.price-highlight {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.result-gallery {
+  margin-top: 20px;
+}
+
+.result-bottom {
+  margin-top: 40px;
+}
+
+.result-bottom-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.result-bottom-content {
+  flex: 2;
+}
+
+.result-bottom-sidebar {
+  flex: 1;
+}
+
+/* Swiper関連 */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .result-inner {
+    display: block !important;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+
+  .result-text,
+  .result-gallery {
+    width: 100% !important;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .result-info table {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .result-layout,
+  .result-main,
+  .result-detail-wrapper,
+  .result-info {
+    width: 100% !important;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  .result-bottom-sidebar {
+    display: none !important;
+  }
+
+
+}
+
+
+/* ✅ スマホ対応 */
+/*@media screen and (max-width: 768px) {
+  .result-layout {
+    display: block;
+    width: 100%;
+  }
+
+  .result-inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+
+  .result-text {
+    order: 2;
+    width: 100%;
+  }
+
+  .result-gallery {
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .result-info table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+
+  .result-layout,
+  .result-main,
+  .result-detail-wrapper,
+  .result-info {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  .result-bottom-sidebar {
+    display: none;
+  }
+}

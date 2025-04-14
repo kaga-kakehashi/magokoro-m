@@ -43,3 +43,24 @@
     ?>
   </ul>
 </section>
+
+<?php if (!is_singular('item')) : ?>
+  <!-- この中に メーカー一覧 のHTMLを入れる -->
+  <section class="manufacturer-container">
+    <!-- メーカー一覧のHTML -->
+    <div class="manufacturer-box">
+      <div class="manufacturer-title">主要メーカー一覧</div>
+        <div class="manufacturer-text">    
+          <p>Panasonic(パナソニック)</p>
+          <p>SHARP(シャープ)</p>
+          <p>TOSHIBA(東芝)</p>
+          <p>HITACHI(日立)</p>
+          <p>MITSUBISHI(三菱)</p>
+          <p>SONY(ソニー)</p>
+          <p>Apple(アップル)</p>
+          <p>上記メーカー以外も買取いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php endif; ?>

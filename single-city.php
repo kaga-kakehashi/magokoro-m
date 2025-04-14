@@ -34,9 +34,8 @@ if ($pref_post) {
 }
 ?>
 
-<main class="single-city">
-  <div class="container">
-
+<main class="city-box">
+  <div class="city-container">
     <h1><?php echo esc_html($city); ?><br>出張買取 リサイクルショップ カケハシ</h1>
     <p>ご不要になったその家電、ぜひカケハシでお売りください！</p>
     <p><?php echo esc_html($pref); ?><?php echo esc_html($city); ?>で引っ越しや買い替えなどにより不要になった家電・家具の処分をお考えの方へ。<br>
@@ -50,13 +49,14 @@ if ($pref_post) {
     $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
     // ▼ 統合テンプレートで買取実績を表示
-    get_template_part('parts/results/result-loop', null, [
-      'city' => $city_slug, // warabishi
+    set_query_var('loop_args', [
+      'city' => $city_slug,
       'posts_per_page' => 9,
       'paged' => $paged,
     ]);
+    get_template_part('parts/results/result-loop');
     ?>
-
+  
     <?php
     // ▼ ページネーション（投稿数に合わせて）
     $total = new WP_Query([
@@ -67,7 +67,8 @@ if ($pref_post) {
         [
           'taxonomy' => 'city',
           'field' => 'slug',
-          'terms' => $city_slug
+          'terms' => $city_slug,
+          'include_children' => false 
         ]
       ]
     ]);
@@ -87,6 +88,10 @@ if ($pref_post) {
     ?>
 
   </div>
+  <?php
+$faq_context = 'area';
+  get_template_part('/parts/faq');
+?>
 </main>
 
 <?php get_footer(); ?>

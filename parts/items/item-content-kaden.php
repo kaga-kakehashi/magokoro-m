@@ -11,7 +11,7 @@
     <h2>取り扱い家電ジャンル一覧</h2>
     <div class="kaden-grid">
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/refrigerator.jpg'); ?>" alt="冷蔵庫">
+        <img src="<?php echo get_theme_file_uri('/assets/images/冷蔵庫.png'); ?>" alt="冷蔵庫">
         <div class="kaden-text">
           <h3>冷蔵庫</h3>
           <p>2ドア〜5ドアなど各種対応。製造10年以内が目安です。</p>
@@ -19,14 +19,14 @@
       </div>
 
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/washing.jpg'); ?>" alt="洗濯機">
+        <img src="<?php echo get_theme_file_uri('/assets/images/洗濯機.png'); ?>" alt="洗濯機">
         <div class="kaden-text">
           <h3>洗濯機・乾燥機</h3>
           <p>ドラム式・縦型どちらも対応。製造10年以内推奨。</p>
         </div>
       </div>
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/aircon.jpg'); ?>" alt="エアコン">
+        <img src="<?php echo get_theme_file_uri('/assets/images/エアコン.png'); ?>" alt="エアコン">
         <div class="kaden-text">
           <h3>エアコン</h3>
           <p>取り外し工事も対応可能。家庭用100V/200Vどちらも可。</p>
@@ -48,9 +48,9 @@
         </div>
       </div>
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/washing.jpg'); ?>" alt="洗濯機">
+        <img src="<?php echo get_theme_file_uri('/assets/images/レンジ.png'); ?>" alt="洗濯機">
         <div class="kaden-text">
-          <h3>電子レレンジンジ</h3>
+          <h3>電子レンジ</h3>
           <p>製造10年以内推奨。</p>
         </div>
       </div>
@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/washing.jpg'); ?>" alt="洗濯機">
+        <img src="<?php echo get_theme_file_uri('/assets/images/ノートPC.png'); ?>" alt="パソコン">
         <div class="kaden-text">
           <h3>パソコン</h3>
           <p>デスクトップ、ノートパソコンどちらも歓迎！残債の残っているものは対象外</p>

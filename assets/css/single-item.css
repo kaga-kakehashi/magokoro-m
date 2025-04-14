@@ -1,0 +1,165 @@
+/*item一覧家電の表*/
+.item-title{
+    text-align: center;
+  }
+  
+  .item-title h1{
+    text-align: center;
+  }
+  
+  .item-title h2{
+    text-align: center;
+  }
+  
+  .kaden-table {
+      margin: 40px 0;
+    }
+    
+    .kaden-table table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 20px;
+    }
+    
+    .kaden-table td {
+      text-align: center;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    .kaden-table img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    
+    .kaden-feature h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    
+    .kaden-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding-inline: 100px;
+    }
+    
+    .kaden-box {
+      display: flex;
+      width: calc(50% - 15px); /* 2カラム */
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 15px;
+      box-sizing: border-box;
+      align-items: flex-start;
+      gap: 15px;
+      border-left: 5px solid #fc8c1c;
+      transition: 0.3s;
+    }
+    
+    .kaden-box img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    
+    .kaden-text h3 {
+      margin: 0 0 5px;
+      font-size: 18px;
+    }
+    
+    .kaden-text p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+  
+    .kaden-feature {
+      margin: 40px 0 40px 0;
+      background-color: #f4f1d0; /* サブ背景カラー */
+      padding: 50px 0 50px 0;
+    }
+    
+    
+    .kaden-feature h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #ff7f00; /* メインカラーライン */
+      color: #333;
+    }
+       
+    .kaden-text h3 {
+      font-size: 18px;
+      color: #ff7f00;
+      margin: 0 0 5px;
+    }
+    
+    .kaden-text p {
+      font-size: 14px;
+      color: #555;
+      margin: 0;
+    }
+  
+    .manufacturer-container{
+      background-color:#fff;    
+      padding-inline: 25%;
+    }
+    
+    .manufacturer-box {
+      position: relative;
+      margin: 4em 0 2em;
+      padding: 2.5em 1em 1.5em;
+      border: 3px solid #ff7f00;
+      border-radius: 10px;
+      background: #fff;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+    
+    .manufacturer-title{
+      position: absolute;
+      top: -20px; /* ←文字サイズに応じて調整 */
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0 20px;
+      background: #fff;
+      color: #ff7f00;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 1.2;
+      white-space: nowrap;
+      z-index: 2;
+    }
+  
+  
+    .manufacturer-text{
+      margin: 0.5em 0;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center
+    }
+  
+    @media screen and (max-width: 768px) {
+      .kaden-grid {
+        display: flex !important;         /* ← 1列に並べるには block より flex のままでもOK */
+        flex-direction: column !important;
+        gap: 20px;
+        padding-inline: 16px;
+      }
+    
+      .kaden-box {
+        width: 100% !important;
+        margin-bottom: 20px;
+        flex-direction: row !important; /* ← 中身の横並びを維持したまま */
+        align-items: flex-start;
+      }
+    }
+    

@@ -1,0 +1,119 @@
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fffdf9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .contact-container h1 {
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #ffa64d;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin: 0 auto 3rem;
+    width: fit-content;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #444;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    transition: border 0.2s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: #ffa64d;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  .form-group span {
+    color: red;
+    margin-left: 0.3rem;
+  }
+  
+  .form-submit {
+    text-align: center;
+  }
+  
+  .form-submit button {
+    background-color: #ffa64d;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .form-submit button:hover {
+    background-color: #ff8c1a;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .contact-container {
+      padding: 1.5rem 1rem;
+    }
+  
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-size: 0.95rem;
+    }
+  
+    .form-submit button {
+      width: 100%;
+    }
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .radio-option input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: #ffa64d;
+  }

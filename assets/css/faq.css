@@ -1,0 +1,199 @@
+/* =============================
+   FAQ Section Styles
+   ============================= */
+
+.faq-section {
+    padding: 50px 0px;
+    background: #f8f5ed;
+    width: auto;
+}
+
+.faq-section h2{
+  font-size: 2rem;
+  color: #333;
+  border-bottom: 3px solid #ffa64d;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  margin: 0 auto 3rem;
+  width: fit-content;
+}
+
+.faq-text{
+    text-align: center;
+    margin: 3em 0;
+}
+
+.faq-text a{
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff7f00;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.faq-text a:hover {
+    background-color: #e96b00;
+    text-decoration:underline;
+  }
+
+  .faq-item {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px; /* 質問と質問の間の余白 */
+    overflow: hidden;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    padding: 15px; /* 質問と回答を囲む */
+    position: relative;
+    margin-inline: 100px;
+}
+
+.faq-category {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 40px 0 20px;    
+  }
+  
+  .faq-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+    padding: 10px;
+}
+  
+  .faq-answer {
+    display: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #8a623d; /* 文字色（お好みで変更OK） */
+    border-top: 1px solid #ddd; /* 質問と回答の間に線をつける */
+    margin-top: 10px;
+  }
+
+  /*ここから下をメインページにする*/
+  .pagefaq-section {
+    padding: 50px 0px;
+    background: #f8f5ed;
+    width: auto;
+}
+
+  .pagefaq-section h1{
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #ffa64d;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin: 0 auto 3rem;
+    width: fit-content;
+  }
+  
+  .faq-text{
+      text-align: center;
+      margin: 3em 0;
+  }
+  
+  .faq-text a{
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #ff7f00;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+  }
+  
+  .faq-text a:hover {
+      background-color: #e96b00;
+      text-decoration:underline;
+    }
+  
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 15px; /* 質問と質問の間の余白 */
+      overflow: hidden;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
+      padding: 15px; /* 質問と回答を囲む */
+      position: relative;
+      margin-inline: 100px;
+  }
+  
+  .pagefaq-category {
+      padding-top: 20px;
+      text-align: center;
+      font-size: 1.5em;
+      margin: 40px 0 20px;    
+    }
+    
+    .faq-item:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      outline: none;
+      padding: 10px;
+  }
+    
+    .faq-answer {
+      display: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      color: #8a623d; /* 文字色（お好みで変更OK） */
+      border-top: 1px solid #ddd; /* 質問と回答の間に線をつける */
+      margin-top: 10px;
+    }
+
+  /* 開いた時のスタイル */
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+  
+ 
+.toggle-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+  .faq-item.active .toggle-icon {
+    content: "−"; /* プラスをマイナスに変更 */
+    transform: rotate(0deg); /* 角度を戻す */
+}
+  
+  @media screen and (max-width: 600px) {
+    .faq-question {
+      font-size: 15px;
+    }
+    .faq-answer {
+      font-size: 14px;
+    }
+  }
+  

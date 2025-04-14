@@ -1,0 +1,102 @@
+/* 買取商品セクション */
+.items-section {
+  margin-top: 60px;
+  padding-inline: 20px;
+}
+
+.items-section h2 {
+  font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #ffa64d;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin: 0 auto 3rem;
+    width: fit-content;
+}
+
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  background: #fdfdfd;
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 2px solid #ffa64d;
+}
+
+.item:hover {
+  background: #fff7ed;
+  border-color: #ffa64d;
+}
+
+.item a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.item-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* 👇 画像サイズは維持 */
+.item-icon img {
+  max-width: 200px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+/* 主要メーカー */
+.manufacturer-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  padding-inline: 20px;
+}
+
+.manufacturer-box {
+  border: 3px solid #ff7f00;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  background-color: #fffaf5;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.manufacturer-title {
+  color: #ff7f00;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.manufacturer-text p {
+  margin: 5px 0;
+  font-size: 1rem;
+}

@@ -1,0 +1,269 @@
+/*parts*/
+.area-indexbody {
+    background-color: #fff3e0;
+}
+
+.area-section{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.area-indexbody h2 {
+  font-size: 2rem;
+  color: #333;
+  border-bottom: 3px solid #ffa64d;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  margin: 0 auto 3rem;
+  width: fit-content;
+}
+
+.area-indexbox{
+    background-color: #fffefc;
+    border: 2px solid #ffe0b3;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 1080px;
+    margin: 0 auto 3rem;
+    box-shadow: 0 1px 4px rgba(255, 153, 0, 0.1);
+}
+
+.area-indexbox h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 1.2rem;
+    border-left: 5px solid #ffa64d;
+    padding-left: 0.6rem;
+}
+
+.area-indexbox ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.area-indexbox li {
+    margin: 0;
+  }
+
+.area-lead-box {
+    background: #fff8ec;
+    border-left: 6px solid #ff8000;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  .area-lead-box p {
+    margin: 0 0 1rem;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .area-lead-box p strong {
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 1.1rem;
+    
+  }
+  
+/*買取ぺージ*/
+.area-body {
+    padding-top: 100px;
+    padding-inline: 100px;
+    font-family: sans-serif; /* 例 */
+}
+
+.area-body h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.area-box {
+    border-radius: 10px;
+    padding: 20px;
+    width: auto;
+    margin: 0 auto; /* 中央寄せ */
+    background-color: #fff;
+}
+
+.area-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/*出張買取エリア*/
+.area-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .area-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    color: #333;
+  }
+  
+  .area-container p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .area-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .area-item {
+    display: inline-block;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    color: #333;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .area-item:hover {
+    background: #ff9900;
+    color: #fff;
+  }
+  
+  .area-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .area-list li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .area-list li a:hover {
+    background: #ff9900;
+    color: white;
+    border-radius: 6px;
+  }
+
+  /* リストをフレックスで横並び */
+.area-box ul {
+    display: flex;
+    flex-wrap: wrap; /* 横幅足りない場合折り返し */
+    gap: 1rem;       /* 要素間のスペース */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .area-item.disabled {
+    background: #f9f9f9;
+    color: #999;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+    opacity: 0.6;
+    pointer-events: none; /* クリック不可にする */
+  }
+  
+  .area-item.disabled:hover {
+    background: #f0f0f0;
+    color: #999;
+  }
+
+  /*市区町村一覧ページ*/
+.city-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.city-item {
+    display: inline-block;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    min-width: 100px;
+    font-size: 0.95rem;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .city-item:hover {
+    background: #ff9900;
+    color: #fff;
+  }
+  
+  .city-item.disabled {
+    color: #999;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .area-group{
+    margin-top: 20px;
+  }
+
+  .area-group h2 {
+    background: #ff7f00;
+    color: #fff;
+    padding: 0.4em 1em;
+    border-radius: 9999px;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 1rem 0 0.5rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .area-body {
+      padding-inline: 16px; /* 左右の余白を統一 */
+    }
+  
+    .area-box {
+      padding: 10px;
+    }
+  
+    .city-item {
+      padding: 0.5rem 0.8rem;     /* パディングを調整して小さめに */
+      min-width: 80px;            /* 横幅も少し小さく */
+      font-size: 0.85rem;         /* フォントサイズも調整 */
+    }
+  
+    .area-group h2 {
+      font-size: 1rem;            /* 見出しも少し小さく */
+      padding: 0.3em 0.8em;
+    }
+  
+    .city-list {
+      gap: 0.5rem;                /* ボタン同士の間隔も少し狭めに */
+    }
+  }
+  

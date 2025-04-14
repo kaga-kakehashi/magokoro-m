@@ -1,4 +1,23 @@
 <?php
+function theme_enqueue_styles() {
+  wp_enqueue_style('theme-style', get_stylesheet_uri(), [], filemtime(get_stylesheet_directory()));
+  wp_enqueue_style('header-style', get_template_directory_uri() . '/assets/css/header.css', [], filemtime(get_template_directory() . '/assets/css/header.css'));
+  wp_enqueue_style('hero-style', get_template_directory_uri() . '/assets/css/hero.css', [], filemtime(get_template_directory() . '/assets/css/hero.css'));
+  wp_enqueue_style('items-style', get_template_directory_uri() . '/assets/css/items.css', [], filemtime(get_template_directory() . '/assets/css/items.css'));
+  wp_enqueue_style('results-style', get_template_directory_uri() . '/assets/css/results.css', [], filemtime(get_template_directory() . '/assets/css/results.css'));
+  wp_enqueue_style('results-single-style', get_template_directory_uri() . '/assets/css/results-single.css', [], filemtime(get_template_directory() . '/assets/css/results-single.css'));
+  wp_enqueue_style('results-list-style', get_template_directory_uri() . '/assets/css/results-list.css', [], filemtime(get_template_directory() . '/assets/css/results-list.css'));
+  wp_enqueue_style('faq-style', get_template_directory_uri() . '/assets/css/faq.css', [], filemtime(get_template_directory() . '/assets/css/faq.css'));
+  wp_enqueue_style('area-style', get_template_directory_uri() . '/assets/css/area.css', [], filemtime(get_template_directory() . '/assets/css/area.css'));
+  wp_enqueue_style('city-single-style', get_template_directory_uri() . '/assets/css/city-single.css', [], filemtime(get_template_directory() . '/assets/css/city-single.css'));
+  wp_enqueue_style('flow-style', get_template_directory_uri() . '/assets/css/flow.css', [], filemtime(get_template_directory() . '/assets/css/flow.css'));
+  wp_enqueue_style('strong-style', get_template_directory_uri() . '/assets/css/strong.css', [], filemtime(get_template_directory() . '/assets/css/strong.css'));
+  wp_enqueue_style('voice-style', get_template_directory_uri() . '/assets/css/voice.css', [], filemtime(get_template_directory() . '/assets/css/voice.css'));
+  wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css', [], filemtime(get_template_directory() . '/assets/css/contact.css'));
+  wp_enqueue_style('single-item-style', get_template_directory_uri() . '/assets/css/single-item.css', [], filemtime(get_template_directory() . '/assets/css/single-item.css'));
+  wp_enqueue_style('cta-style', get_template_directory_uri() . '/assets/css/cta.css', [], filemtime(get_template_directory() . '/assets/css/cta.css'));
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 // メニューを有効化
 add_theme_support('menus');
 
@@ -156,6 +175,63 @@ function register_item_post_type() {
     );
   }
   add_action('init', 'register_city_taxonomy');    
+
+  add_action('admin_post_send_contact_form', 'handle_contact_form');
+add_action('admin_post_nopriv_send_contact_form', 'handle_contact_form');
+
+//問い合わせ
+function handle_contact_form() {
+  $to = 'info@kakehashi-m.com';
+  $subject = '【カケハシ】お問い合わせがありました';
+
+  $body = "【お名前】" . sanitize_text_field($_POST['name']) . "\n";
+  $body .= "【フリガナ】" . sanitize_text_field($_POST['kana']) . "\n";
+  $body .= "【住所】" . sanitize_text_field($_POST['address']) . "\n";
+  $body .= "【電話番号】" . sanitize_text_field($_POST['phone']) . "\n";
+  $body .= "【メール】" . sanitize_email($_POST['email']) . "\n";
+  $body .= "【種別】" . sanitize_text_field($_POST['type']) . "\n";
+  $body .= "【内容】\n" . sanitize_textarea_field($_POST['message']);
+
+  $headers = ['From: カケハシ <info@kakehashi-m.com>'];
+
+  // 添付ファイル処理
+  $attachments = [];
+  if (!empty($_FILES['images']['name'][0])) {
+    foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+      if (is_uploaded_file($tmp_name)) {
+        $upload_dir = wp_upload_dir();
+        $filename = basename($_FILES['images']['name'][$key]);
+        $target = $upload_dir['path'] . '/' . $filename;
+        move_uploaded_file($tmp_name, $target);
+        $attachments[] = $target;
+      }
+    }
+  }
+
+  wp_mail($to, $subject, $body, $headers, $attachments);
+
+  wp_redirect(home_url('/thanks'));
+  exit;
+}
+
+
+//差出人アドレスを維持同追加
+add_filter('wp_mail_from', 'custom_wp_mail_from');
+function custom_wp_mail_from($original_email_address) {
+    return 'no-reply@kakehashi-m.com'; // 差出人メールアドレスを固定
+}
+
+add_filter('wp_mail_from_name', 'custom_wp_mail_from_name');
+function custom_wp_mail_from_name($original_email_from) {
+    return 'リサイクルショップ カケハシ'; // 差出人名を固定
+}
+
+add_action('phpmailer_init', function($phpmailer) {
+  $phpmailer->SMTPDebug = 2;
+  $phpmailer->Debugoutput = function($str, $level) {
+    error_log("SMTP DEBUG: " . $str);
+  };
+});
 ?>
 
 

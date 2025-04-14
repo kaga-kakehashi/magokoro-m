@@ -1,0 +1,80 @@
+/*会社の強み*/
+
+.strong-body {
+    background-color: #fdfaf6;
+    padding: 3rem 1rem;
+}
+
+.strong-body h2 {
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #ffa64d;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin: 0 auto 3rem;
+    width: fit-content;
+}
+
+.strong-body h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.strong-box img{
+    border-radius: 50%;
+    border: 5px solid #ffa64d;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin: 1rem 0;
+}
+
+.strong-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+  
+
+.strong-overlay{
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.strong-box{
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 2px solid #ffa64d;
+    transition: transform 0.3s ease;
+    width: 300px;
+}
+
+.strong-box:hover {
+    transform: translateY(-5px);
+}
+
+.strong-title{
+    background-color: #ffa64d;
+    color: #fff;
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .strong-overlay,
+    .strong-overlay.bottom {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

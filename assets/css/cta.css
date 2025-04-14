@@ -1,0 +1,51 @@
+.cta-box {
+    background: #fdf8e6;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+  .cta-box .cta-message {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .cta-box .cta-button {
+    display: inline-block;
+    background-color: #06c755; /* LINEカラー */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-box img[alt*="LINEQRコード"] {
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .cta-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .cta-heading-img,
+    .cta-steps-img {
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+  
+    .cta-box {
+      padding: 0 15px;
+    }
+  }
+  

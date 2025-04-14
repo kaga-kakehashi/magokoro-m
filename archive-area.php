@@ -43,4 +43,6 @@
         </ul>
     </div>
 </div>
+<?php get_template_part('parts/items/items'); ?>
+<?php get_template_part('parts/faq'); ?>
 <?php get_footer(); ?>

@@ -12,38 +12,39 @@ $updated = get_the_modified_date('c');
 $description = wp_strip_all_tags(get_the_excerpt(), true);
 ?>
 
-<!-- 🔸構造化データ -->
+<!-- ⚫ストラクチャーデータ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "Product",
-  "name": "<?php echo esc_js($product_name); ?>",
-  "image": "<?php echo esc_url($product_image); ?>",
-  "description": "<?php echo esc_js($description); ?>",
+  "name": "<?php echo esc_js(get_the_title()); ?>",
+  "image": "<?php echo esc_url(get_the_post_thumbnail_url() ?: get_template_directory_uri() . '/images/noimage.jpg'); ?>",
+  "description": "<?php echo esc_js(wp_strip_all_tags(get_the_excerpt(), true)); ?>",
+  "url": "<?php echo esc_url(get_permalink()); ?>",
   "brand": {
     "@type": "Brand",
-    "name": "<?php echo esc_js($brand); ?>"
+    "name": "カケハシ"
   },
-  "sku": "<?php echo esc_js($model_number); ?>",
-  "releaseDate": "<?php echo esc_js($model_year); ?>",
+  "sku": "<?php echo esc_js(get_field('model-number')); ?>",
+  "releaseDate": "<?php echo esc_js(get_field('model-year')); ?>",
+  "itemCondition": "https://schema.org/UsedCondition",
   "offers": {
     "@type": "Offer",
     "priceCurrency": "JPY",
-    "price": "<?php echo esc_js($price); ?>",
-    "availability": "https://schema.org/InStock"
+    "price": "<?php echo esc_js(get_field('buy_price')); ?>",
+    "availability": "https://schema.org/InStock",
+    "url": "<?php echo esc_url(get_permalink()); ?>"
   },
-  "datePublished": "<?php echo $published; ?>",
-  "dateModified": "<?php echo $updated; ?>"
+  "datePublished": "<?php echo get_the_date('c'); ?>",
+  "dateModified": "<?php echo get_the_modified_date('c'); ?>"
 }
 </script>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <div class="result-layout">
-
-  <!-- 🔸メインエリア -->
+  <!-- ▪メインエリア -->
   <div class="result-main">
-
     <div class="result-detail-wrapper">
       <h1 class="result-title"><?php the_title(); ?></h1>
 
@@ -54,7 +55,7 @@ $description = wp_strip_all_tags(get_the_excerpt(), true);
             <!-- 左：商品情報 -->
             <div class="result-text">
               <table>
-                <tr><th>商品名</th><td><?php the_title(); ?></td></tr>
+                <tr><th>商品名</th><td><?php the_field('result-name'); ?></td></tr>
                 <tr><th>メーカー</th><td><?php the_field('maker'); ?></td></tr>
                 <tr><th>型番</th><td><?php the_field('model-number'); ?></td></tr>
                 <tr><th>年式</th><td><?php the_field('model-year'); ?></td></tr>
@@ -75,7 +76,7 @@ $description = wp_strip_all_tags(get_the_excerpt(), true);
                   ?>
                 </td></tr>
                 <tr><th>商品状態</th><td><?php the_field('condition'); ?></td></tr>
-                <tr><th>査定日</th><td><?php the_time('Y年n月j日'); ?></td></tr>
+                <tr><th>鉱定日</th><td><?php the_time('Y年n月j日'); ?></td></tr>
                 <tr>
                   <th>買取価格</th>
                   <td><span class="price-highlight"><?php the_field('buy_price'); ?> 円</span></td>
@@ -127,39 +128,41 @@ $description = wp_strip_all_tags(get_the_excerpt(), true);
     </div><!-- .result-detail-wrapper -->
   </div><!-- .result-main -->
 </div><!-- .result-layout -->
-<!-- 🔸本文＋サイドバー -->
-<div class="result-bottom">
-        <div class="result-bottom-inner">
-          <div class="result-bottom-content">
-            <?php the_content(); ?>
-          </div>
-          <div class="result-bottom-sidebar">
-            <?php get_sidebar(); ?>
-          </div>
-        </div>
-      </div>
 
+<!-- 文本読み込みとサイドバー -->
+<div class="result-bottom">
+  <div class="result-bottom-inner">
+    <div class="result-bottom-content">
+      <?php the_content(); ?>
+    </div>
+    <div class="result-bottom-sidebar">
+      <?php get_sidebar(); ?>
+    </div>
+  </div>
+</div>
 
 <?php endwhile; endif; ?>
 
 <!-- Swiper連携 -->
 <script>
-const thumbSwiper = new Swiper('.thumb-swiper', {
-  spaceBetween: 10,
-  slidesPerView: 4,
-  watchSlidesProgress: true,
-});
+document.addEventListener('DOMContentLoaded', function () {
+  const thumbSwiper = new Swiper('.thumb-swiper', {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    watchSlidesProgress: true,
+  });
 
-const mainSwiper = new Swiper('.main-swiper', {
-  loop: true,
-  spaceBetween: 10,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  thumbs: {
-    swiper: thumbSwiper,
-  },
+  const mainSwiper = new Swiper('.main-swiper', {
+    loop: true,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+      swiper: thumbSwiper,
+    },
+  });
 });
 </script>
 

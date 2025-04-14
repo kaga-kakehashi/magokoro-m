@@ -2,7 +2,6 @@
 
 <main class="item-single">
   <div class="container">
-    
     <!-- 商品画像＋説明 -->
     <div class="item-head">
       <?php if (has_post_thumbnail()) : ?>
@@ -36,54 +35,23 @@
 
     <hr>
 
-    <!-- 関連買取実績 -->
   <!-- 関連買取実績 -->
-<section class="related-records from-item-page">
-  <div class="section-header">
-    <h2><?php the_title(); ?>の買取実績</h2>
-    <p><?php the_title(); ?>に関する買取実績をご紹介します。</p>
-  </div>
-
+  <section class="related-records from-item-page">
+  <h2 class="results-title"><?php the_title(); ?>の買取実績</h2>
   <?php
-  // 投稿のスラッグ（kaden, refrigeratorなど）をカテゴリ名として使用
   $item_slug = get_post_field('post_name', get_the_ID());
-
-  // ページ番号取得（ページネーション対応）
   $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
-  // 共通ループテンプレートを呼び出し
-  get_template_part('parts/results/result-loop', null, [
+  $args = [
     'category' => $item_slug,
     'posts_per_page' => 6,
-    'paged' => $paged,
-  ]);
-  ?>
+    'paged' => $paged
+  ];
 
-  <?php
-  // ▼ ページネーション（ループと同じ条件で）
-  $total = new WP_Query([
-    'post_type' => 'post',
-    'posts_per_page' => 6,
-    'paged' => $paged,
-    'category_name' => $item_slug
-  ]);
-
-  if ($total->max_num_pages > 1) :
-    echo '<div class="pagination">';
-    echo paginate_links([
-      'total' => $total->max_num_pages,
-      'current' => $paged,
-      'mid_size' => 1,
-      'prev_text' => '« 前へ',
-      'next_text' => '次へ »',
-    ]);
-    echo '</div>';
-  endif;
-
-  wp_reset_postdata();
+  set_query_var('loop_args', $args);
+  get_template_part('parts/results/result-loop');
   ?>
 </section>
-
 </div>
 
   <!-- 他の買取商品リンクなど -->

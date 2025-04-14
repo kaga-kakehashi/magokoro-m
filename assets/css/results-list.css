@@ -1,0 +1,134 @@
+
+.result-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.result-card {
+  background: #fff;
+  border: 2px solid #ff7f00;
+  border-radius: 10px;
+  width: calc(33.333% - 20px);
+  min-width: 280px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.result-thumb {
+  flex: 0 0 250px;
+  max-width: 250px;
+  height: 180px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-horizontal-card {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  border: 2px solid #ff7f00;
+  border-radius: 10px;
+  align-items: stretch;
+  width: calc(50% - 15px);
+}
+
+.item-horizontal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.item-horizontal-card .item-related-infoh {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background: #fef9dc;
+  border-radius: 10px;
+  position: relative;
+}
+
+.result-tag-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #eee;
+  color: #333;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.result-tag-link:hover {
+  text-decoration: underline;
+}
+
+.result-location {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.location-link {
+  color: #333;
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+.location-link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .item-horizontal-card {
+    flex-direction: column; /* 上下に並べる（スマホ向け） */
+    width: 100%;            /* 全幅にする */
+    margin-inline: auto;    /* 中央寄せ（万が一にもズレを防ぐ） */
+  }
+
+  .result-grid {
+    padding-inline: 16px; /* スマホでは左右に16pxくらいの余白を入れる */
+  }
+
+  .item-horizontal-card .item-related-infoh {
+    padding: 15px;
+  }
+
+  .result-thumb {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .result-thumb img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
