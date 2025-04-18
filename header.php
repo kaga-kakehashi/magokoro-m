@@ -13,6 +13,28 @@ if (get_query_var('custom_area') && get_query_var('custom_city')) {
         echo '<meta name="robots" content="noindex, nofollow">';
     }
 }
+
+// 検索結果ページに noindex を付与
+if (is_search()) {
+    echo '<meta name="robots" content="noindex, nofollow">';
+}
+
+// 指定された市区町村ページが「未対応」のとき noindex
+if (get_query_var('custom_area') && get_query_var('custom_city')) {
+    global $wpdb;
+    $area = sanitize_text_field(get_query_var('custom_area'));
+    $city = sanitize_text_field(get_query_var('custom_city'));
+
+    $result = $wpdb->get_row($wpdb->prepare(
+        "SELECT * FROM {$wpdb->prefix}areas WHERE prefecture = %s AND city = %s",
+        $area, $city
+    ));
+
+    if ($result && !$result->available) {
+        echo '<meta name="robots" content="noindex, nofollow">';
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">

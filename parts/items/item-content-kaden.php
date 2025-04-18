@@ -34,7 +34,7 @@
       </div>
 
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/tv.jpg'); ?>" alt="テレビ">
+        <img src="<?php echo get_theme_file_uri('/assets/images/テレビ.png'); ?>" alt="テレビ">
         <div class="kaden-text">
           <h3>テレビ</h3>
           <p>液晶・有機EL対応。32インチ以上は特に歓迎！</p>
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/assets/images/レンジ.png'); ?>" alt="洗濯機">
+        <img src="<?php echo get_theme_file_uri('/assets/images/レンジ.png'); ?>" alt="電子レンジ">
         <div class="kaden-text">
           <h3>電子レンジ</h3>
           <p>製造10年以内推奨。</p>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="kaden-box">
-        <img src="<?php echo get_theme_file_uri('/images/items/washing.jpg'); ?>" alt="洗濯機">
+        <img src="<?php echo get_theme_file_uri('/assets/images/スマートフォン・タブレット.png'); ?>" alt="スマートフォン・タブレット">
         <div class="kaden-text">
           <h3>スマートフォン・タブレット</h3>
           <p>残債の残っているものは対象外</p>

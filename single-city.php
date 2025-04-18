@@ -33,6 +33,48 @@ if ($pref_post) {
   }
 }
 ?>
+<?php
+$pref_slug = get_query_var('custom_area'); // ex: tokyo
+$city_slug = get_query_var('custom_city'); // ex: adachiku
+
+$city_name = '';
+$pref_name = '';
+
+if ($city_slug) {
+  $city_term = get_term_by('slug', $city_slug, 'city');
+  $city_name = $city_term ? $city_term->name : '';
+}
+
+if ($pref_slug) {
+  $pref_term = get_term_by('slug', $pref_slug, 'area');
+  $pref_name = $pref_term ? $pref_term->name : '';
+}
+?>
+<title>出張買取 リサイクルショップ カケハシ | <?php echo esc_html($city_name); ?>で高価買取・無料査定</title>
+<meta name="description" content="<?php echo esc_html($city_name); ?>で家電や家具の出張買取ならリサイクルショップ カケハシへ。冷蔵庫・洗濯機・テレビなどを高価買取中！査定無料・即日対応可能。">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "出張買取 リサイクルショップ カケハシ",
+  "image": "https://kakehashi-m.com/wp-content/uploads/2025/04/リサイクルショップ-カケハシ.png",
+  "url": "<?php echo esc_url(get_permalink()); ?>",
+  "telephone": "+81-90-xxxx-xxxx",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "<?php echo esc_html($city_name); ?>",
+    "addressRegion": "<?php echo esc_html($pref_name); ?>",
+    "addressCountry": "JP"
+  },
+  "priceRange": "¥",
+  "areaServed": "<?php echo esc_html($city_name); ?>",
+  "description": "<?php echo esc_html($city_name); ?>で冷蔵庫・洗濯機などを出張買取。即日対応・高価買取のカケハシです。"
+}
+</script>
+
+
+
 
 <main class="city-box">
   <div class="city-container">

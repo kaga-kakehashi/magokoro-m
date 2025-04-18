@@ -1,0 +1,133 @@
+.topresults-section {
+    background-color: #fff4dc;
+    padding: 40px 0;
+  }
+  
+  .topresults-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+ .topresults-inner h2 {
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #ffa64d;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin: 0 auto 3rem;
+    width: fit-content;
+  }
+  
+  .topresults-swiper {
+    padding-bottom: 2.5rem;
+    overflow: visible !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .topresults-swiper .topresults-slide {
+    width: auto;
+    max-width: 320px;
+    flex-shrink: 0;
+  }
+  
+  .topresults-card {
+    background: #fff;
+    border: 3px solid orange;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .topresults-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+
+  }
+  
+  .topresults-card-thumb img {
+    border-radius: 8px;
+    margin-bottom: 12px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .topresults-card-date,
+  .topresults-card-location {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .topresults-card-title {
+    font-weight: bold;
+    margin: 8px 0;
+  }
+  
+  .topresults-card-meta {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    margin-top: 12px;
+  }
+  
+  .topresults-more-link {
+    margin-top: 24px;
+    text-align: center;
+  }
+  
+  .topresults-more-link .btn {
+    background: orange;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .topresults-more-link .btn:hover {
+    text-decoration: underline;
+  }
+  
+  /* Swiper arrows */
+  .topresults-swiper .swiper-button-prev,
+  .topresults-swiper .swiper-button-next {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #007bff;
+    top: 45%;
+  }
+  
+  .topresults-swiper .swiper-button-prev:hover,
+  .topresults-swiper .swiper-button-next:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Swiper dots */
+  .topresults-swiper .swiper-pagination-bullets {
+    text-align: center;
+    bottom: 0;
+  }
+  
+  .topresults-swiper .swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 1;
+    margin: 0 4px;
+    width: 8px;
+    height: 8px;
+  }
+  
+  .topresults-swiper .swiper-pagination-bullet-active {
+    background: #ff7a00;
+  }
+  
+  

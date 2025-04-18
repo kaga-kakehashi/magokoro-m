@@ -6,39 +6,38 @@ $product_image = get_the_post_thumbnail_url() ?: get_template_directory_uri() . 
 $price = get_field('buy_price');
 $model_year = get_field('model-year');
 $model_number = get_field('model-number');
-$brand = 'カケハシ';
-$published = get_the_date('c');
-$updated = get_the_modified_date('c');
+$brand = get_field('maker') ?: '不明';
 $description = wp_strip_all_tags(get_the_excerpt(), true);
+
+// priceValidUntil：1年後の日付を生成
+$priceValidUntil = (new DateTime())->modify('+1 year')->format('Y-m-d');
 ?>
 
-<!-- ⚫ストラクチャーデータ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "Product",
-  "name": "<?php echo esc_js(get_the_title()); ?>",
-  "image": "<?php echo esc_url(get_the_post_thumbnail_url() ?: get_template_directory_uri() . '/images/noimage.jpg'); ?>",
-  "description": "<?php echo esc_js(wp_strip_all_tags(get_the_excerpt(), true)); ?>",
-  "url": "<?php echo esc_url(get_permalink()); ?>",
+  "name": "<?php echo esc_js($product_name); ?>",
+  "image": "<?php echo esc_url($product_image); ?>",
+  "description": "<?php echo esc_js($description); ?>",
+  "sku": "<?php echo esc_js($model_number); ?>",
   "brand": {
     "@type": "Brand",
-    "name": "カケハシ"
+    "name": "<?php echo esc_js($brand); ?>"
   },
-  "sku": "<?php echo esc_js(get_field('model-number')); ?>",
-  "releaseDate": "<?php echo esc_js(get_field('model-year')); ?>",
+  "releaseDate": "<?php echo esc_js($model_year); ?>",
   "itemCondition": "https://schema.org/UsedCondition",
   "offers": {
     "@type": "Offer",
     "priceCurrency": "JPY",
-    "price": "<?php echo esc_js(get_field('buy_price')); ?>",
+    "price": "<?php echo esc_js($price); ?>",
+    "priceValidUntil": "<?php echo $priceValidUntil; ?>",
     "availability": "https://schema.org/InStock",
     "url": "<?php echo esc_url(get_permalink()); ?>"
-  },
-  "datePublished": "<?php echo get_the_date('c'); ?>",
-  "dateModified": "<?php echo get_the_modified_date('c'); ?>"
+  }
 }
 </script>
+
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

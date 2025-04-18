@@ -16,8 +16,35 @@ function theme_enqueue_styles() {
   wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css', [], filemtime(get_template_directory() . '/assets/css/contact.css'));
   wp_enqueue_style('single-item-style', get_template_directory_uri() . '/assets/css/single-item.css', [], filemtime(get_template_directory() . '/assets/css/single-item.css'));
   wp_enqueue_style('cta-style', get_template_directory_uri() . '/assets/css/cta.css', [], filemtime(get_template_directory() . '/assets/css/cta.css'));
+  wp_enqueue_style('top-results-style', get_template_directory_uri() . '/assets/css/top-results.css', [], filemtime(get_template_directory() . '/assets/css/top-results.css'));
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+
+// JSON-LD構造化データをhead内に追加
+function add_json_ld_organization_schema() {
+  echo '<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "出張買取 リサイクルショップ カケハシ",
+    "url": "https://kakehashi-m.com/",
+    "logo": "https://kakehashi-m.com/wp-content/uploads/your-logo.png",
+    "description": "出張買取・リサイクルを行う関東のリサイクルショップ カケハシ。冷蔵庫・洗濯機・電子レンジなど家電を高価買取。",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+81-90-xxxx-xxxx",
+      "contactType": "customer service",
+      "areaServed": "JP",
+      "availableLanguage": ["Japanese"]
+    },
+    "sameAs": [
+      "https://www.instagram.com/youraccount",
+      "https://www.facebook.com/youraccount",
+      "https://www.tiktok.com/@youraccount"
+    ]
+  }</script>';
+}
+add_action('wp_head', 'add_json_ld_organization_schema');
+
 // メニューを有効化
 add_theme_support('menus');
 
@@ -232,8 +259,64 @@ add_action('phpmailer_init', function($phpmailer) {
     error_log("SMTP DEBUG: " . $str);
   };
 });
-?>
 
+//市区町村のファイルマップ
+add_action('init', function() {
+  add_rewrite_rule('^custom-sitemap\.xml$', 'index.php?custom_sitemap=1', 'top');
+  add_rewrite_tag('%custom_sitemap%', '1');
+});
 
+add_action('template_redirect', function () {
+  if (get_query_var('custom_sitemap')) {
+    header('Content-Type: application/xml; charset=utf-8');
+    echo generate_custom_city_sitemap();
+    exit;
+  }
+});
 
+function generate_custom_city_sitemap() {
+  global $wpdb;
+  $rows = $wpdb->get_results("SELECT a.city_name, p.post_name AS pref_slug FROM wp_areas a JOIN wp_posts p ON a.post_id = p.ID");
 
+  $items = '';
+  foreach ($rows as $row) {
+    $url = home_url("/area/{$row->pref_slug}/{$row->city_name}/");
+    $items .= "
+<url>
+  <loc>{$url}</loc>
+  <lastmod>" . date('Y-m-d') . "</lastmod>
+</url>";
+  }
+
+  return '<?xml version="1.0" encoding="UTF-8"?>' . "\n" . 
+'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . $items . "\n</urlset>";
+}
+
+add_action('init', function () {
+  if (strpos($_SERVER['REQUEST_URI'], '/custom-sitemap.xml') !== false) {
+    header('Content-Type: application/xml; charset=utf-8');
+
+    global $wpdb;
+    $results = $wpdb->get_results("
+  SELECT a.city_name AS city_slug, p.post_name AS pref_slug
+  FROM wp_areas a
+  INNER JOIN {$wpdb->posts} p ON a.post_id = p.ID
+  WHERE a.has_page = 1 AND p.post_status = 'publish'
+");
+    
+    header('Content-Type: application/xml; charset=utf-8');
+    print '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+    foreach ($results as $row) {
+      $url = home_url("/area/{$row->pref_slug}/{$row->city_slug}/");
+      echo '<url>';
+      echo '<loc>' . esc_url($url) . '</loc>';
+      echo '<lastmod>' . date('Y-m-d') . '</lastmod>';
+      echo '</url>';
+    }
+
+    echo '</urlset>';
+    exit;
+  }
+});
